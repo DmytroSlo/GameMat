@@ -1,3 +1,5 @@
+import resource.Users.MathRandom;
+
 import java.io.*;
 import java.util.Objects;
 import java.util.Random;
@@ -18,7 +20,7 @@ public class Licznik {
             if(hard.hasNextInt()) {
                 int hardlvl = hard.nextInt();
 
-                int correctAnswer = 0;
+                int correct = 0;
                 Random rand = new Random();
 
                 int num1;
@@ -29,17 +31,23 @@ public class Licznik {
                     case 1 -> {
                         num1 = rand.nextInt(10) + 1;
                         num2 = rand.nextInt(10) + 1;
-                        correctAnswer = randomMath(num1, num2, operator);
+                        MathRandom corect = new MathRandom(num1, num2, operator);
+                        System.out.print(corect.Random(num1, num2, operator));
+                        correct = corect.getCorrect();
                     }
                     case 2 -> {
                         num1 = rand.nextInt(30) + 1;
                         num2 = rand.nextInt(30) + 1;
-                        correctAnswer = randomMath(num1, num2, operator);
+                        MathRandom corect = new MathRandom(num1, num2, operator);
+                        System.out.print(corect.Random(num1, num2, operator));
+                        correct = corect.getCorrect();
                     }
                     case 3 -> {
                         num1 = rand.nextInt(50) + 1;
                         num2 = rand.nextInt(50) + 1;
-                        correctAnswer = randomMath(num1, num2, operator);
+                        MathRandom corect = new MathRandom(num1, num2, operator);
+                        System.out.print(corect.Random(num1, num2, operator));
+                        correct = corect.getCorrect();
                     }
                     default -> {
                         System.out.println("Złe wpisałeś");
@@ -52,7 +60,7 @@ public class Licznik {
 
                 int currentPoints = 0;
                 //Point
-                if (answer == correctAnswer) {
+                if (answer == correct) {
                     int newPointValue = switch (hardlvl) {
                         case 1 -> 1;
                         case 2 -> 2;
@@ -123,24 +131,6 @@ public class Licznik {
                 System.out.println("Konieć!");
             }
         }
-    }
-
-    //Mathematics Random
-    public static int randomMath(int num1, int num2, int operator) {
-        String task = "";
-        int correctAnswer = 0;
-
-        if (operator == 0) {
-            task = "Zadanie : " + num1 + " + " + num2 + ": ";
-            correctAnswer = num1 + num2;
-        } else {
-            task = "Zadanie : " + num1 + " - " + num2 + ": ";
-            correctAnswer = num1 - num2;
-        }
-
-        System.out.print(task);
-
-        return correctAnswer;
     }
 
     //Create new users

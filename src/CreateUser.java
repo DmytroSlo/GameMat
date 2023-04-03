@@ -74,16 +74,6 @@ public class CreateUser {
 
         save.close();
         System.out.println(getInfo(login));
-
-        //Odczyt dannych
-//        File load = new File("src\\resource\\Users\\" + login +".txt");
-//        Scanner loadSystem = new Scanner(load);
-//        while (loadSystem.hasNextLine()) {
-//            String output = loadSystem.nextLine();
-//            System.out.println(output);
-//        }
-//
-//        loadSystem.close();
     }
 
     public String getInfo(String login){
