@@ -21,8 +21,8 @@ public class Licznik {
                 int correctAnswer = 0;
                 Random rand = new Random();
 
-                int num1 = rand.nextInt(10) + 1;
-                int num2 = rand.nextInt(10) + 1;
+                int num1;
+                int num2;
                 int operator = rand.nextInt(2);
 
                 switch (hardlvl) {
@@ -197,7 +197,7 @@ public class Licznik {
 
         Scanner age = new Scanner(System.in);
         System.out.print("Wpisz ile masz lat: ");
-        String ageUser = age.nextLine();
+        int ageUser = age.nextInt();
 
         Scanner ageDay = new Scanner(System.in);
         System.out.print("Wpisz date urodzenia: ");
@@ -215,35 +215,8 @@ public class Licznik {
         System.out.print("Wpisz password: ");
         String passwordUser = password.nextLine();
 
-        //Zapis i stworzenie dannych
-        PrintWriter save = new PrintWriter("src\\resource\\Users\\" + loginUser + ".txt");
+        CreateUser create = new CreateUser(firstNameUser, lastNameUser, ageUser, ageDayUser,eMailUser, loginUser, passwordUser);
+        create.createAccount();
 
-        int defoult = 0;
-        double defoultTime = 00.00;
-        int defoultLvl = 1;
-
-        save.println("Imię: " + firstNameUser +
-                "\nNazwisko: " + lastNameUser +
-                "\nWiek: " + ageUser +
-                "\nData urodzenia: " + ageDayUser +
-                "\nE-mail: " + eMailUser +
-                "\nLogin: " + loginUser +
-                "\nPassword: " + passwordUser +
-                "\nPoint: " + defoult +
-                "\nLvl: " + defoultLvl +
-                "\nAllGameTime: " + defoultTime +
-                "\nMoney: " + defoult);
-
-        save.close();
-
-        //Odczyt dannych
-        File load = new File("src\\resource\\Users\\" + loginUser +".txt");
-        Scanner loadSystem = new Scanner(load);
-        while (loadSystem.hasNextLine()) {
-            String output = loadSystem.nextLine();
-            System.out.println(output);
-        }
-
-        loadSystem.close();
     }
 }

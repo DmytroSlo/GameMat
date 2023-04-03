@@ -1,0 +1,93 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+public class CreateUser {
+
+    private String firstName;
+    private String lastName;
+    private int age;
+    private String dateAge;
+    private String eMail;
+    private String login;
+    private String password;
+
+    public CreateUser() {}
+
+    public CreateUser(String firstName, String lastName, int age, String dateAge, String eMail, String login, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.dateAge = dateAge;
+        this.eMail = eMail;
+        this.login = login;
+        this.password = password;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getDateAge() {
+        return dateAge;
+    }
+
+    public String geteMail() {
+        return eMail;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void createAccount() throws FileNotFoundException {
+        PrintWriter save = new PrintWriter("src\\resource\\Users\\" + login + ".txt");
+
+        int defoult = 0;
+        double defoultTime = 00.00;
+        int defoultLvl = 1;
+
+        save.println("Imię: " + firstName +
+                "\nNazwisko: " + lastName +
+                "\nWiek: " + age +
+                "\nData urodzenia: " + dateAge +
+                "\nE-mail: " + eMail +
+                "\nLogin: " + login +
+                "\nPassword: " + password +
+                "\nPoint: " + defoult +
+                "\nLvl: " + defoultLvl +
+                "\nAllGameTime: " + defoultTime +
+                "\nMoney: " + defoult);
+
+        save.close();
+        System.out.println(getInfo(login));
+
+        //Odczyt dannych
+//        File load = new File("src\\resource\\Users\\" + login +".txt");
+//        Scanner loadSystem = new Scanner(load);
+//        while (loadSystem.hasNextLine()) {
+//            String output = loadSystem.nextLine();
+//            System.out.println(output);
+//        }
+//
+//        loadSystem.close();
+    }
+
+    public String getInfo(String login){
+        return "Nowy użytkownik " + login + "stworzony!";
+    }
+
+}
