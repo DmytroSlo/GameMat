@@ -1,0 +1,11 @@
+Imię: Andrzej
+Nazwisko: Duda
+Wiek: 41
+Data urodzenia: 14.10.1984
+E-mail: andrzejek84@gmail.com
+Login: Duda
+Password: AnDu84
+Point: 0
+Lvl: 1
+AllGameTime: 0.0
+Money: 0

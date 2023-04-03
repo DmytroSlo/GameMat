@@ -1,0 +1,11 @@
+Imię: test
+Nazwisko: test
+Wiek: 26
+Data urodzenia: 23.11.2222
+E-mail: tester@test.test
+Login: Tester
+Password: tes22
+Point: 11
+Lvl: 2
+AllGameTime: 0.0
+Money: 0

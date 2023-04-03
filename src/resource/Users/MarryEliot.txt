@@ -1,0 +1,11 @@
+Imię: Mary
+Nazwisko: Eliot
+Wiek: 27
+Data urodzenia: 31.02.1845
+E-mail: -
+Login: MarryEliot
+Password: Ewill
+Point: 1
+Lvl: 1
+AllGameTime: 0.0
+Money: 0
