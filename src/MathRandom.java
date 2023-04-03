@@ -1,5 +1,3 @@
-package resource.Users;
-
 public class MathRandom {
     private int num1;
     private int num2;
@@ -30,5 +28,4 @@ public class MathRandom {
     public int getCorrect() {
         return correct;
     }
-
 }
