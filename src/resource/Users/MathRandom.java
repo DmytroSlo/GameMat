@@ -30,4 +30,5 @@ public class MathRandom {
     public int getCorrect() {
         return correct;
     }
+
 }
