@@ -24,7 +24,6 @@ public class Point {
         if (usersData.exists()) {
             int currentPoints = 0;
             //Point
-            if (answer == correct) {
                 int newPointValue = switch (hardlvl) {
                     case 1 -> 1;
                     case 2 -> 2;
@@ -50,17 +49,21 @@ public class Point {
                 save.close();
 
                 System.out.println("Dostałeś " + newPointValue + " punkty. Maś: " + currentPoints);
-            }
         }
     }
 
-    public void PointDown(String user) throws IOException {
+    public void PointDown(String user, int hardlvl) throws IOException {
         int currentPoints = 0;
 
         File usersData = new File("src\\resource\\Users\\" + user + ".txt");
         Scanner loadFile = new Scanner(usersData);
 
-        int newPointValue = 2;
+        int newPointValue = switch (hardlvl) {
+            case 1 -> 1;
+            case 2 -> 2;
+            case 3 -> 3;
+            default -> 0;
+        };
 
         StringBuilder fileContents = new StringBuilder();
         while (loadFile.hasNextLine()) {

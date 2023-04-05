@@ -58,13 +58,6 @@ public class Licznik {
 
                 //Point
                 if (answer == correct) {
-                    int newPointValue = switch (hardlvl) {
-                        case 1 -> 1;
-                        case 2 -> 2;
-                        case 3 -> 3;
-                        default -> 0;
-                    };
-
                     //Result == TRUE
                     Point point = new Point();
                     point.PointUp(user, answer, correct, hardlvl);
@@ -75,7 +68,7 @@ public class Licznik {
                 } else {
                     //Result == FALSE
                     Point point = new Point();
-                    point.PointDown(user);
+                    point.PointDown(user, hardlvl);
 
                     LvlUpgrade newLvl = new LvlUpgrade(user);
                     newLvl.lvlUp(user);
