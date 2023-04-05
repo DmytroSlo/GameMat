@@ -56,7 +56,6 @@ public class Licznik {
                 Scanner check = new Scanner(System.in);
                 int answer = check.nextInt();
 
-                int currentPoints = 0;
                 //Point
                 if (answer == correct) {
                     int newPointValue = switch (hardlvl) {
@@ -66,54 +65,20 @@ public class Licznik {
                         default -> 0;
                     };
 
-                    // Edytacja
-                    Scanner loadFile = new Scanner(usersData);
-
-                    StringBuilder fileContents = new StringBuilder();
-                    while (loadFile.hasNextLine()) {
-                        String line = loadFile.nextLine();
-                        if (line.startsWith("Point:")) {
-                            currentPoints = Integer.parseInt(line.split(": ")[1]);
-                            currentPoints += newPointValue;
-                            line = "Point: " + currentPoints;
-                        }
-                        fileContents.append(line).append("\n");
-                    }
-                    loadFile.close();
-                    //Save to file User
-                    FileWriter save = new FileWriter(usersData);
-                    save.write((fileContents.toString()));
-                    save.close();
-
-                    System.out.println("Dostałeś " + newPointValue + " punkty. Maś: " + currentPoints);
+                    //Result == TRUE
+                    Point point = new Point();
+                    point.PointUp(user, answer, correct, hardlvl);
 
                     LvlUpgrade newLvl = new LvlUpgrade(user);
+                    newLvl.lvlUp(user);
 
                 } else {
                     //Result == FALSE
-                    Scanner loadFile = new Scanner(usersData);
-
-                    int newPointValue = 2;
-
-                    StringBuilder fileContents = new StringBuilder();
-                    while (loadFile.hasNextLine()) {
-                        String line = loadFile.nextLine();
-                        if (line.startsWith("Point:")) {
-                            currentPoints = Integer.parseInt(line.split(": ")[1]);
-                            currentPoints -= newPointValue;
-                            line = "Point: " + currentPoints;
-                        }
-                        fileContents.append(line).append("\n");
-                    }
-                    loadFile.close();
-                    //Save to file User
-                    FileWriter save = new FileWriter(usersData);
-                    save.write((fileContents.toString()));
-                    save.close();
-
-                    System.out.println("Straciłeś " + newPointValue + " punkty. Maś: " + currentPoints);
+                    Point point = new Point();
+                    point.PointDown(user);
 
                     LvlUpgrade newLvl = new LvlUpgrade(user);
+                    newLvl.lvlUp(user);
                 }
             } else{
                 System.out.println("Złe wpisałeś");
