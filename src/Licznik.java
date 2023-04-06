@@ -9,9 +9,9 @@ public class Licznik {
         Scanner userLogin = new Scanner(System.in);
         System.out.print("Wpisz swój login: ");
         String user = userLogin.nextLine();
+        UserName validUser = new UserName(user);
         //Shearch users
-        File usersData = new File("src\\resource\\Users\\" + user + ".txt");
-        if (usersData.exists()) {
+        if (validUser.userValidation(user)) {
             //LVL posium
             Scanner hard = new Scanner(System.in);
             System.out.print("Jaki chceś poziom [1, 2 ,3]?: ");

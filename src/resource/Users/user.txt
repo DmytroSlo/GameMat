@@ -5,7 +5,7 @@ Data urodzenia: 21.05.8876
 E-mail: userstest@gmail.com
 Login: user
 Password: 123
-Point: 58
+Point: 42
 Lvl: 4
 AllGameTime: 0.0
 Money: 0
