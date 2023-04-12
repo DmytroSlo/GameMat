@@ -59,7 +59,7 @@ public class Licznik {
                 int answer = check.nextInt();
 
                 time.TimerEnd();
-
+                time.addTime(user);
                 //Point
                 if (answer == correct) {
                     //Result == TRUE

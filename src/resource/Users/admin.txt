@@ -7,5 +7,5 @@ Login: admin
 Password: admin
 Point: 0
 Lvl: 1
-AllGameTime: 0.0
+BestTime: 0.0
 Money: 0

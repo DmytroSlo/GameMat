@@ -41,7 +41,7 @@ public class CreateUser {
                 "\nPassword: " + password +
                 "\nPoint: " + defoult +
                 "\nLvl: " + defoultLvl +
-                "\nAllGameTime: " + defoultTime +
+                "\nBestTime: " + defoultTime +
                 "\nMoney: " + defoult);
 
         save.close();

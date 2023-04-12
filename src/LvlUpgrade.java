@@ -23,33 +23,47 @@ public class LvlUpgrade {
         while (lvl.hasNextLine()) {
             String lvlUser = lvl.nextLine();
             if(lvlUser.startsWith("Point: ")){
-                pointPosition = Integer.parseInt((lvlUser.split(":")[1].trim()));
+                String pointValueString = lvlUser.substring("Point: ".length());
+                pointPosition = Integer.parseInt(pointValueString);
             }
             if (lvlUser.startsWith("Lvl:")) {
-                lvlposition = Integer.parseInt(lvlUser.split(":")[1].trim());
                 if (pointPosition < 1){
+                    lvlposition = Integer.parseInt(lvlUser.split(":")[1].trim());
                     lvlposition = 0;
+                    lvlUser = "Lvl: " + lvlposition;
                 } else if(pointPosition <= 10){
+                    lvlposition = Integer.parseInt(lvlUser.split(":")[1].trim());
                     lvlposition = 1;
+                    lvlUser = "Lvl: " + lvlposition;
                 } else if(pointPosition <= 20){
+                    lvlposition = Integer.parseInt(lvlUser.split(":")[1].trim());
                     lvlposition = 2;
+                    lvlUser = "Lvl: " + lvlposition;
                 } else if(pointPosition <= 35){
+                    lvlposition = Integer.parseInt(lvlUser.split(":")[1].trim());
                     lvlposition = 3;
+                    lvlUser = "Lvl: " + lvlposition;
                 } else if(pointPosition <= 50){
+                    lvlposition = Integer.parseInt(lvlUser.split(":")[1].trim());
                     lvlposition = 4;
+                    lvlUser = "Lvl: " + lvlposition;
                 } else if(pointPosition <= 100){
+                    lvlposition = Integer.parseInt(lvlUser.split(":")[1].trim());
                     lvlposition = 5;
+                    lvlUser = "Lvl: " + lvlposition;
                 } else{
+                    lvlposition = Integer.parseInt(lvlUser.split(":")[1].trim());
                     lvlposition = 6;
+                    lvlUser = "Lvl: " + lvlposition;
                 }
                 System.out.println("Twój lvl: " + lvlposition);
             }
-            lvlcontent.append(lvlUser).append(("\n"));
+            lvlcontent.append(lvlUser).append("\n");
         }
         lvl.close();
 
         FileWriter save = new FileWriter(lvlcheck);
-        save.write((lvlcontent.toString()));
+        save.write(lvlcontent.toString());
         save.close();
     }
 }

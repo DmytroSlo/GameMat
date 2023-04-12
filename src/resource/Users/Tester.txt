@@ -7,5 +7,5 @@ Login: Tester
 Password: tes22
 Point: 11
 Lvl: 2
-AllGameTime: 0.0
+BestTime: 0
 Money: 0
