@@ -3,16 +3,17 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Point {
-
+public class Point{
     private String user;
+
     private int answer;
     private int correct;
     private int hardlvl;
 
-    public void Point(){}
+    public Point() {
+    }
 
-    public void Point(String user, int answer, int correct, int hardlvl){
+    public Point(String user, int answer, int correct, int hardlvl) {
         this.user = user;
         this.answer = answer;
         this.correct = correct;

@@ -19,4 +19,8 @@ public class UserName {
         }
         return result;
     }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
 }

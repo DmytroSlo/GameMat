@@ -1,7 +1,5 @@
 import java.io.*;
-import java.util.Objects;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Licznik {
     public static void main(String[] args) throws IOException {
@@ -16,6 +14,7 @@ public class Licznik {
             Scanner hard = new Scanner(System.in);
             System.out.print("Jaki chceś poziom [1, 2 ,3]?: ");
             if(hard.hasNextInt()) {
+
                 int hardlvl = hard.nextInt();
 
                 int correct = 0;
@@ -53,8 +52,13 @@ public class Licznik {
                     }
                 }
                 //Result == TRUE
+                Time time = new Time();
+                time.TimerCheckStart();
+
                 Scanner check = new Scanner(System.in);
                 int answer = check.nextInt();
+
+                time.TimerEnd();
 
                 //Point
                 if (answer == correct) {
@@ -63,15 +67,18 @@ public class Licznik {
                     point.PointUp(user, answer, correct, hardlvl);
 
                     LvlUpgrade newLvl = new LvlUpgrade(user);
-                    newLvl.lvlUp(user);
+                    newLvl.lvlUp();
 
+                    time.Cancel();
                 } else {
                     //Result == FALSE
                     Point point = new Point();
                     point.PointDown(user, hardlvl);
 
                     LvlUpgrade newLvl = new LvlUpgrade(user);
-                    newLvl.lvlUp(user);
+                    newLvl.lvlUp();
+
+                    time.Cancel();
                 }
             } else{
                 System.out.println("Złe wpisałeś");

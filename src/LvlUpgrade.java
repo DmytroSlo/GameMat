@@ -9,15 +9,11 @@ public class LvlUpgrade {
 
     public LvlUpgrade(){}
 
-    public LvlUpgrade(String user){
+    public LvlUpgrade(String user) {
         this.user = user;
     }
 
-    public String getUser() {
-        return user;
-    }
-
-    public void lvlUp(String user) throws IOException {
+    public void lvlUp() throws IOException {
         File lvlcheck = new File("src\\resource\\Users\\" + user + ".txt");
         Scanner lvl = new Scanner(lvlcheck);
 

@@ -25,34 +25,6 @@ public class CreateUser {
         this.password = password;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public String getDateAge() {
-        return dateAge;
-    }
-
-    public String geteMail() {
-        return eMail;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
     public void createAccount() throws FileNotFoundException {
         PrintWriter save = new PrintWriter("src\\resource\\Users\\" + login + ".txt");
 
