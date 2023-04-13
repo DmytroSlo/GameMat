@@ -1,7 +1,5 @@
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.Scanner;
 
 public class CreateUser {
 
@@ -29,8 +27,6 @@ public class CreateUser {
         PrintWriter save = new PrintWriter("src\\resource\\Users\\" + login + ".txt");
 
         int defoult = 0;
-        double defoultTime = 00.00;
-        int defoultLvl = 1;
 
         save.println("Imię: " + firstName +
                 "\nNazwisko: " + lastName +
@@ -40,8 +36,8 @@ public class CreateUser {
                 "\nLogin: " + login +
                 "\nPassword: " + password +
                 "\nPoint: " + defoult +
-                "\nLvl: " + defoultLvl +
-                "\nBestTime: " + defoultTime +
+                "\nLvl: " + defoult +
+                "\nBestTime: " + defoult +
                 "\nMoney: " + defoult);
 
         save.close();
@@ -49,7 +45,6 @@ public class CreateUser {
     }
 
     public String getInfo(String login){
-        return "Nowy użytkownik " + login + "stworzony!";
+        return "Nowy użytkownik " + login + " został stworzony!";
     }
-
 }

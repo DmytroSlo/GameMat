@@ -49,7 +49,7 @@ public class Point{
                 save.write((fileContents.toString()));
                 save.close();
 
-                System.out.println("Dostałeś " + newPointValue + " punkty. Maś: " + currentPoints);
+                System.out.println("Dostałeś " + newPointValue + " punkty. \nMaś: " + currentPoints);
         }
     }
 

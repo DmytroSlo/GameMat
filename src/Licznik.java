@@ -54,12 +54,12 @@ public class Licznik {
                 //Result == TRUE
                 Time time = new Time();
                 time.TimerCheckStart();
+                RestartGame reset = new RestartGame();
 
                 Scanner check = new Scanner(System.in);
                 int answer = check.nextInt();
 
                 time.TimerEnd();
-                time.addTime(user);
                 //Point
                 if (answer == correct) {
                     //Result == TRUE
@@ -69,7 +69,10 @@ public class Licznik {
                     LvlUpgrade newLvl = new LvlUpgrade(user);
                     newLvl.lvlUp();
 
+                    time.addTime(user);
                     time.Cancel();
+
+                    reset.restart();
                 } else {
                     //Result == FALSE
                     Point point = new Point();
@@ -79,6 +82,7 @@ public class Licznik {
                     newLvl.lvlUp();
 
                     time.Cancel();
+                    reset.restart();
                 }
             } else{
                 System.out.println("Złe wpisałeś");
@@ -97,7 +101,7 @@ public class Licznik {
     }
 
     //Create new users
-   public static void createUser() throws FileNotFoundException {
+   public static void createUser() throws IOException {
         // Ankieta rejestracijna
         Scanner userName = new Scanner(System.in);
         System.out.print("Wpisz swoje imię: ");
@@ -130,5 +134,7 @@ public class Licznik {
         CreateUser create = new CreateUser(firstNameUser, lastNameUser, ageUser, ageDayUser,eMailUser, loginUser, passwordUser);
         create.createAccount();
 
+        RestartGame done = new RestartGame();
+        done.startNewUser();
     }
 }

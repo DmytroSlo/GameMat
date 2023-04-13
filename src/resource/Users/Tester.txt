@@ -5,7 +5,7 @@ Data urodzenia: 23.11.2222
 E-mail: tester@test.test
 Login: Tester
 Password: tes22
-Point: 11
+Point: 12
 Lvl: 2
-BestTime: 0
+BestTime: 3
 Money: 0
