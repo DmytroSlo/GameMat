@@ -23,7 +23,7 @@ public class CreateUser {
         this.password = password;
     }
 
-    public void createAccount() throws FileNotFoundException {
+    public void createAccount(String login, String firstName, String lastName, int age, String dateAge, String eMail, String password) throws FileNotFoundException {
         PrintWriter save = new PrintWriter("src\\resource\\Users\\" + login + ".txt");
 
         int defoult = 0;

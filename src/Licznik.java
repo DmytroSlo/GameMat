@@ -93,7 +93,7 @@ public class Licznik {
             System.out.print("Nie ma takiego użytkownika. Zarejestruj się\nChcesz zarejestrować się? Y/N: ");
             String accepted = createAccount.nextLine();
             if(Objects.equals(accepted, "Y")) {
-                createUser();
+                createUser(user);
             } else{
                 System.out.println("Konieć!");
             }
@@ -101,7 +101,7 @@ public class Licznik {
     }
 
     //Create new users
-   public static void createUser() throws IOException {
+   public static void createUser(String user) throws IOException {
         // Ankieta rejestracijna
         Scanner userName = new Scanner(System.in);
         System.out.print("Wpisz swoje imię: ");
@@ -123,16 +123,12 @@ public class Licznik {
         System.out.print("Wpisz e-mail: ");
         String eMailUser = eMail.nextLine();
 
-        Scanner login = new Scanner(System.in);
-        System.out.print("Wpisz login: ");
-        String loginUser = login.nextLine();
-
         Scanner password = new Scanner(System.in);
         System.out.print("Wpisz password: ");
         String passwordUser = password.nextLine();
 
-        CreateUser create = new CreateUser(firstNameUser, lastNameUser, ageUser, ageDayUser,eMailUser, loginUser, passwordUser);
-        create.createAccount();
+        CreateUser create = new CreateUser();
+        create.createAccount(user, firstNameUser, lastNameUser, ageUser, ageDayUser,eMailUser, passwordUser);
 
         RestartGame done = new RestartGame();
         done.startNewUser();
