@@ -127,8 +127,8 @@ public class Licznik {
         System.out.print("Wpisz password: ");
         String passwordUser = password.nextLine();
 
-        CreateUser create = new CreateUser();
-        create.createAccount(user, firstNameUser, lastNameUser, ageUser, ageDayUser,eMailUser, passwordUser);
+        CreateUser create = new CreateUser(user, firstNameUser, lastNameUser, ageUser, ageDayUser,eMailUser, passwordUser);
+        create.createAccount();
 
         RestartGame done = new RestartGame();
         done.startNewUser();

@@ -2,29 +2,28 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 public class CreateUser {
-
+    private String user;
     private String firstName;
     private String lastName;
     private int age;
     private String dateAge;
     private String eMail;
-    private String login;
     private String password;
 
     public CreateUser() {}
 
-    public CreateUser(String firstName, String lastName, int age, String dateAge, String eMail, String login, String password) {
+    public CreateUser(String user, String firstName, String lastName, int age, String dateAge, String eMail, String password) {
+        this.user = user;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.dateAge = dateAge;
         this.eMail = eMail;
-        this.login = login;
         this.password = password;
     }
 
-    public void createAccount(String login, String firstName, String lastName, int age, String dateAge, String eMail, String password) throws FileNotFoundException {
-        PrintWriter save = new PrintWriter("src\\resource\\Users\\" + login + ".txt");
+    public void createAccount() throws FileNotFoundException {
+        PrintWriter save = new PrintWriter("src\\resource\\Users\\" + user + ".txt");
 
         int defoult = 0;
 
@@ -33,7 +32,7 @@ public class CreateUser {
                 "\nWiek: " + age +
                 "\nData urodzenia: " + dateAge +
                 "\nE-mail: " + eMail +
-                "\nLogin: " + login +
+                "\nLogin: " + user +
                 "\nPassword: " + password +
                 "\nPoint: " + defoult +
                 "\nLvl: " + defoult +
@@ -41,7 +40,7 @@ public class CreateUser {
                 "\nMoney: " + defoult);
 
         save.close();
-        System.out.println(getInfo(login));
+        System.out.println(getInfo(user));
     }
 
     public String getInfo(String login){
