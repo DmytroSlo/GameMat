@@ -12,7 +12,7 @@ public class CreateUser extends UserName{
     public CreateUser() {}
 
     public CreateUser(String user, String firstName, String lastName, int age, String dateAge, String eMail, String password) {
-        super.user = user;
+        super(user);
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;

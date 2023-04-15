@@ -15,9 +15,10 @@ public class Time extends UserName{
     public Time() {
     }
 
-    public Time(long startTime, String user) {
+    public Time(String user, long startTime) {
+        super(user);
         this.startTime = startTime;
-        super.user = user;
+
     }
 
     public void TimerCheckStart (){

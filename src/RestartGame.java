@@ -1,9 +1,16 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class RestartGame {
+public class RestartGame extends UserName{
+    private String result;
 
     public RestartGame(){
+    }
+
+    public RestartGame(String user) {
+        super(user);
     }
 
     public void restart() throws IOException {
@@ -13,6 +20,9 @@ public class RestartGame {
 
         if (askResult.equals("Y")) {
             Licznik.main(new String[]{});
+        } else{
+            System.out.println("Konieć gry! Twoje danne:");
+            setValues();
         }
     }
 
@@ -23,6 +33,17 @@ public class RestartGame {
 
         if (askResult.equals("Y")) {
             Licznik.main(new String[]{});
+        }
+    }
+
+    public void setValues() throws FileNotFoundException {
+        File load = new File("src\\resource\\Users\\" + user + ".txt");
+        Scanner userLoad = new Scanner(load);
+
+        while(userLoad.hasNextLine()){
+            String userData = userLoad.nextLine();
+            result = userData;
+            System.out.println(result);
         }
     }
 }

@@ -12,7 +12,7 @@ public class Point extends UserName{
     }
 
     public Point(String user, int answer, int correct, int hardlvl) {
-        super.user = user;
+        super(user);
         this.answer = answer;
         this.correct = correct;
         this.hardlvl = hardlvl;

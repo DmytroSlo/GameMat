@@ -54,7 +54,7 @@ public class Licznik {
                 //Result == TRUE
                 Time time = new Time();
                 time.TimerCheckStart();
-                RestartGame reset = new RestartGame();
+                RestartGame reset = new RestartGame(user);
 
                 Scanner check = new Scanner(System.in);
                 int answer = check.nextInt();
