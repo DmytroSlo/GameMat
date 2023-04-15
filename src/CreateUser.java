@@ -1,8 +1,7 @@
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
-public class CreateUser {
-    private String user;
+public class CreateUser extends UserName{
     private String firstName;
     private String lastName;
     private int age;
@@ -13,7 +12,7 @@ public class CreateUser {
     public CreateUser() {}
 
     public CreateUser(String user, String firstName, String lastName, int age, String dateAge, String eMail, String password) {
-        this.user = user;
+        super.user = user;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;

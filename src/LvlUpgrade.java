@@ -4,13 +4,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class LvlUpgrade {
-    private String user;
+public class LvlUpgrade extends UserName {
 
     public LvlUpgrade(){}
 
     public LvlUpgrade(String user) {
-        this.user = user;
+        super.user = user;
     }
 
     public void lvlUp() throws IOException {

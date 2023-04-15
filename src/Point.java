@@ -3,9 +3,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Point{
-    private String user;
-
+public class Point extends UserName{
     private int answer;
     private int correct;
     private int hardlvl;
@@ -14,7 +12,7 @@ public class Point{
     }
 
     public Point(String user, int answer, int correct, int hardlvl) {
-        this.user = user;
+        super.user = user;
         this.answer = answer;
         this.correct = correct;
         this.hardlvl = hardlvl;

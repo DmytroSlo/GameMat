@@ -5,6 +5,6 @@ Data urodzenia: 21.05.8876
 E-mail: userstest@gmail.com
 Login: user
 Password: 123
-Point: 123
-BestTime: 0
+Point: 129
+BestTime: 4
 Lvl: 6

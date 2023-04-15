@@ -5,12 +5,11 @@ import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Time {
+public class Time extends UserName{
 
     private long startTime;
     private Timer time;
     private long result;
-    private String user;
 
 
     public Time() {
@@ -18,7 +17,7 @@ public class Time {
 
     public Time(long startTime, String user) {
         this.startTime = startTime;
-        this.user = user;
+        super.user = user;
     }
 
     public void TimerCheckStart (){
