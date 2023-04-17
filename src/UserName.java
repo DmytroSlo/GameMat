@@ -15,20 +15,17 @@ public class UserName {
         this.user = user;
     }
 
-    public boolean userValidation(String user, String passwordUser) throws FileNotFoundException {
+    public boolean userValidation() throws FileNotFoundException {
         File usersData = new File("src\\resource\\Users\\" + user + ".txt");
         if(usersData.exists()){
-            boolean paswCheck = passwordValidation(user, passwordUser);
-            if (paswCheck) {
                 result = true;
             } else{
                 result = false;
             }
-        }
         return result;
     }
 
-    public boolean passwordValidation(String user, String passwordUser) throws FileNotFoundException {
+    public boolean passwordValidation(String passwordUser) throws FileNotFoundException {
         File usersData = new File("src\\resource\\Users\\" + user + ".txt");
         Scanner loadPassworld = new Scanner(usersData);
         while (loadPassworld.hasNextLine()){
