@@ -7,9 +7,14 @@ public class Licznik {
         Scanner userLogin = new Scanner(System.in);
         System.out.print("Wpisz swój login: ");
         String user = userLogin.nextLine();
-        UserName validUser = new UserName(user);
+
+        Scanner userPassword = new Scanner(System.in);
+        System.out.print("Wpisz hasło: ");
+        String passwordUser = userPassword.nextLine();
+
+        UserName validUser = new UserName();
         //Shearch users
-        if (validUser.userValidation(user)) {
+        if (validUser.userValidation(user, passwordUser)) {
             //LVL posium
             Scanner hard = new Scanner(System.in);
             System.out.print("Jaki chceś poziom [1, 2 ,3]?: ");

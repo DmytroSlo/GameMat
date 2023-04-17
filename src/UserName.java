@@ -1,7 +1,13 @@
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class UserName {
     public String user;
+    private String passwordUser;
+    private boolean passwordResult;
+    private boolean result;
+
 
     public UserName(){};
 
@@ -9,15 +15,35 @@ public class UserName {
         this.user = user;
     }
 
-    public boolean userValidation(String user){
+    public boolean userValidation(String user, String passwordUser) throws FileNotFoundException {
         File usersData = new File("src\\resource\\Users\\" + user + ".txt");
-        boolean result;
         if(usersData.exists()){
-            result = true;
-        } else{
-            result = false;
+            boolean paswCheck = passwordValidation(user, passwordUser);
+            if (paswCheck) {
+                result = true;
+            } else{
+                result = false;
+            }
         }
         return result;
+    }
+
+    public boolean passwordValidation(String user, String passwordUser) throws FileNotFoundException {
+        File usersData = new File("src\\resource\\Users\\" + user + ".txt");
+        Scanner loadPassworld = new Scanner(usersData);
+        while (loadPassworld.hasNextLine()){
+            String passwordUserLoad = loadPassworld.nextLine();
+            if(passwordUserLoad.startsWith("Password: ")){
+                String passUserValue = passwordUserLoad.substring("Password: ".length());
+                if(passUserValue.equals(passwordUser)){
+                    passwordResult = true;
+                } else{
+                    System.out.println("Złe wpisałeś hasło!");
+                    passwordResult = false;
+                }
+            }
+        }
+        return passwordResult;
     }
 
     public void setUser(String user) {
