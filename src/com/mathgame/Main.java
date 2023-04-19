@@ -1,7 +1,9 @@
+package com.mathgame;
+
 import java.io.*;
 import java.util.*;
 
-public class Licznik {
+public class Main {
     public static void main(String[] args) throws IOException {
         //Login
         Scanner userLogin = new Scanner(System.in);

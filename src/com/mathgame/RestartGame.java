@@ -1,3 +1,5 @@
+package com.mathgame;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -19,7 +21,7 @@ public class RestartGame extends UserName{
         String askResult = ask.nextLine();
 
         if (askResult.equals("Y")) {
-            Licznik.main(new String[]{});
+            Main.main(new String[]{});
         } else{
             System.out.println("Konieć gry! Twoje danne:");
             setValues();
@@ -32,7 +34,7 @@ public class RestartGame extends UserName{
         String askResult = ask.nextLine();
 
         if (askResult.equals("Y")) {
-            Licznik.main(new String[]{});
+            Main.main(new String[]{});
         }
     }
 
