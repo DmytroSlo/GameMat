@@ -127,10 +127,12 @@ public class Main {
         Scanner userLastName = new Scanner(System.in);
         System.out.print("Wpisz swoje nazwisko: ");
         String lastNameUser = userLastName.nextLine();
+        String validLName = validation.lnameValidation(lastNameUser);
 
         Scanner age = new Scanner(System.in);
         System.out.print("Wpisz ile masz lat: ");
         int ageUser = age.nextInt();
+        int ageValid = validation.ageValidation(ageUser);
 
         Scanner ageDay = new Scanner(System.in);
         System.out.print("Wpisz date urodzenia: ");
@@ -144,9 +146,7 @@ public class Main {
         System.out.print("Wpisz password: ");
         String passwordUser = password.nextLine();
 
-//        Validation validation = new Validation(firstNameUser, lastNameUser, ageUser,ageDayUser, eMailUser, passwordUser);
-        //validation.nameValidation();
-        CreateUser create = new CreateUser(user, validName, lastNameUser, ageUser, ageDayUser,eMailUser, passwordUser);
+        CreateUser create = new CreateUser(user, validName, validLName, ageValid, ageDayUser,eMailUser, passwordUser);
         create.createAccount();
 
         RestartGame done = new RestartGame();

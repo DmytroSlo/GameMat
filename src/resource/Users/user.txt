@@ -1,10 +1,11 @@
 Imię: User
-Nazwisko: users
-Wiek: 36
-Data urodzenia: 21.05.8876
-E-mail: userstest@gmail.com
+Nazwisko: as
+Wiek: 0
+Data urodzenia: 31/04/2000
+E-mail: user@userowi.com
 Login: user
 Password: 123
-Point: 152
-BestTime: 1
-Lvl: 6
+Point: 0
+Lvl: 0
+BestTime: 0
+Money: 0
