@@ -3,6 +3,7 @@ package com.mathgame;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class RestartGame extends UserName{
@@ -15,7 +16,7 @@ public class RestartGame extends UserName{
         super(user);
     }
 
-    public void restart() throws IOException {
+    public void restart() throws IOException, ParseException {
         Scanner ask = new Scanner(System.in);
         System.out.print("Chceś sprubować jeszcze raz? Y/N: ");
         String askResult = ask.nextLine();
@@ -28,7 +29,7 @@ public class RestartGame extends UserName{
         }
     }
 
-    public void startNewUser() throws IOException{
+    public void startNewUser() throws IOException, ParseException {
         Scanner ask = new Scanner(System.in);
         System.out.print("Chceś sprobować zarać? Y/N: ");
         String askResult = ask.nextLine();

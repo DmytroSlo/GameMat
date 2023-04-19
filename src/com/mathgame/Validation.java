@@ -1,5 +1,8 @@
 package com.mathgame;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -8,17 +11,17 @@ public class Validation {
     private String name;
     private String lastName;
     private int age;
-    private String brithDat;
+    private String brithDay;
     private String eMail;
     private String password;
 
     public Validation(){}
 
-    public Validation(String name, String lastName, int age, String brithDat, String eMail, String password) {
+    public Validation(String name, String lastName, int age, String brithDay, String eMail, String password) {
         this.name = name;
         this.lastName = lastName;
         this.age = age;
-        this.brithDat = brithDat;
+        this.brithDay = brithDay;
         this.eMail = eMail;
         this.password = password;
     }
@@ -75,6 +78,32 @@ public class Validation {
                 return age;
             }
         }
+    }
+
+    public String brithDay(String brithDay) throws ParseException {
+
+        SimpleDateFormat data = new SimpleDateFormat("dd.MM.yyyy");
+        data.setLenient(false);
+
+        Scanner brithDayVal = new Scanner(System.in);
+
+        Date date = null;
+        boolean hasError = false;
+
+        while(true) {
+            try {
+                if(hasError){
+                    System.out.print("Złe wpisałeś date!\nSprubój ponownie [dd.mm.yyyy]: ");
+                    brithDay = brithDayVal.nextLine();
+                }
+                date = data.parse(brithDay);
+                break;
+            } catch (ParseException e) {
+                hasError = true;
+            }
+        }
+
+        return brithDay = data.format(date);
     }
 
 }

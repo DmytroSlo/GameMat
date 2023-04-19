@@ -1,10 +1,11 @@
 package com.mathgame;
 
 import java.io.*;
+import java.text.ParseException;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ParseException {
         //Login
         Scanner userLogin = new Scanner(System.in);
         System.out.print("Wpisz swój login: ");
@@ -115,7 +116,7 @@ public class Main {
     }
 
     //Create new users
-    public static void createUser(String user) throws IOException {
+    public static void createUser(String user) throws IOException, ParseException {
         // Ankieta rejestracijna
         Validation validation = new Validation();
 
@@ -136,7 +137,8 @@ public class Main {
 
         Scanner ageDay = new Scanner(System.in);
         System.out.print("Wpisz date urodzenia: ");
-        String ageDayUser = ageDay.nextLine();
+        String ageDayUser = ageDay.next();
+        validation.brithDay(ageDayUser);
 
         Scanner eMail = new Scanner(System.in);
         System.out.print("Wpisz e-mail: ");
