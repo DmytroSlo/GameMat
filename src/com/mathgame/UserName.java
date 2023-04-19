@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class UserName {
-    public String user;
+    protected String user;
     private String passwordUser;
     private boolean passwordResult;
     private boolean result;

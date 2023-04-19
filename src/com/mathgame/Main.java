@@ -117,9 +117,12 @@ public class Main {
     //Create new users
     public static void createUser(String user) throws IOException {
         // Ankieta rejestracijna
+        Validation validation = new Validation();
+
         Scanner userName = new Scanner(System.in);
         System.out.print("Wpisz swoje imię: ");
         String firstNameUser = userName.nextLine();
+        String validName = validation.nameValidation(firstNameUser);
 
         Scanner userLastName = new Scanner(System.in);
         System.out.print("Wpisz swoje nazwisko: ");
@@ -141,7 +144,9 @@ public class Main {
         System.out.print("Wpisz password: ");
         String passwordUser = password.nextLine();
 
-        CreateUser create = new CreateUser(user, firstNameUser, lastNameUser, ageUser, ageDayUser,eMailUser, passwordUser);
+//        Validation validation = new Validation(firstNameUser, lastNameUser, ageUser,ageDayUser, eMailUser, passwordUser);
+        //validation.nameValidation();
+        CreateUser create = new CreateUser(user, validName, lastNameUser, ageUser, ageDayUser,eMailUser, passwordUser);
         create.createAccount();
 
         RestartGame done = new RestartGame();
