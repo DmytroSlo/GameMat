@@ -80,30 +80,29 @@ public class Validation {
         }
     }
 
-    public String brithDay(String brithDay) throws ParseException {
+    public String brithDay(String age) throws ParseException {
 
-        SimpleDateFormat data = new SimpleDateFormat("dd.MM.yyyy");
-        data.setLenient(false);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        dateFormat.setLenient(false);
 
-        Scanner brithDayVal = new Scanner(System.in);
-
-        Date date = null;
+        String newDate = "";
         boolean hasError = false;
 
         while(true) {
             try {
                 if(hasError){
+                    Scanner ageDay = new Scanner(System.in);
                     System.out.print("Złe wpisałeś date!\nSprubój ponownie [dd.mm.yyyy]: ");
-                    brithDay = brithDayVal.nextLine();
+                    newDate = ageDay.nextLine();
                 }
-                date = data.parse(brithDay);
+                Date brithDay = dateFormat.parse(newDate);
                 break;
             } catch (ParseException e) {
                 hasError = true;
             }
         }
 
-        return brithDay = data.format(date);
+        return newDate;
     }
 
 }

@@ -2,6 +2,7 @@ package com.mathgame;
 
 import java.io.*;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Main {
@@ -119,26 +120,12 @@ public class Main {
     public static void createUser(String user) throws IOException, ParseException {
         // Ankieta rejestracijna
         Validation validation = new Validation();
+        CreateUser create = new CreateUser();
 
-        Scanner userName = new Scanner(System.in);
-        System.out.print("Wpisz swoje imię: ");
-        String firstNameUser = userName.nextLine();
-        String validName = validation.nameValidation(firstNameUser);
-
-        Scanner userLastName = new Scanner(System.in);
-        System.out.print("Wpisz swoje nazwisko: ");
-        String lastNameUser = userLastName.nextLine();
-        String validLName = validation.lnameValidation(lastNameUser);
-
-        Scanner age = new Scanner(System.in);
-        System.out.print("Wpisz ile masz lat: ");
-        int ageUser = age.nextInt();
-        int ageValid = validation.ageValidation(ageUser);
-
-        Scanner ageDay = new Scanner(System.in);
-        System.out.print("Wpisz date urodzenia: ");
-        String ageDayUser = ageDay.next();
-        validation.brithDay(ageDayUser);
+        create.nameUser();
+        create.lNameUser();
+        create.ageUser();
+        create.brithDayUser();
 
         Scanner eMail = new Scanner(System.in);
         System.out.print("Wpisz e-mail: ");
@@ -148,8 +135,8 @@ public class Main {
         System.out.print("Wpisz password: ");
         String passwordUser = password.nextLine();
 
-        CreateUser create = new CreateUser(user, validName, validLName, ageValid, ageDayUser,eMailUser, passwordUser);
-        create.createAccount();
+        //CreateUser create = new CreateUser(user, , validLName, ageValid, validDate,eMailUser, passwordUser);
+        create.createAccount(user);
 
         RestartGame done = new RestartGame();
         done.startNewUser();

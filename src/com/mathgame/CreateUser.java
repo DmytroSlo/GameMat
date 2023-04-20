@@ -2,18 +2,22 @@ package com.mathgame;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
 
 public class CreateUser extends UserName{
     private String firstName;
     private String lastName;
     private int age;
-    private String dateAge;
+    private Date dateAge;
     private String eMail;
     private String password;
 
     public CreateUser() {}
 
-    public CreateUser(String user, String firstName, String lastName, int age, String dateAge, String eMail, String password) {
+    public CreateUser(String user, String firstName, String lastName, int age, Date dateAge, String eMail, String password) {
         super(user);
         this.firstName = firstName;
         this.lastName = lastName;
@@ -23,8 +27,13 @@ public class CreateUser extends UserName{
         this.password = password;
     }
 
-    public void createAccount() throws FileNotFoundException {
+    public void createAccount(String user) throws FileNotFoundException {
         PrintWriter save = new PrintWriter("src\\resource\\Users\\" + user + ".txt");
+
+        nameUser();
+        lNameUser();
+        ageUser();
+        brithDayUser();
 
         int defoult = 0;
 
@@ -48,51 +57,46 @@ public class CreateUser extends UserName{
         return "Nowy użytkownik " + login + " został stworzony!";
     }
 
-    public String getFirstName() {
-        return firstName;
+    public void nameUser(){
+        Validation validation = new Validation();
+
+        Scanner userName = new Scanner(System.in);
+        System.out.print("Wpisz swoje imię: ");
+        String firstNameuser = userName.nextLine();
+
+        firstName = validation.nameValidation(firstNameuser);
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void lNameUser() {
+        Validation validation = new Validation();
+
+        Scanner userLastName = new Scanner(System.in);
+        System.out.print("Wpisz swoje nazwisko: ");
+        String lastNameUser = userLastName.nextLine();
+
+        lastName = validation.lnameValidation(lastNameUser);
     }
 
-    public String getLastName() {
-        return lastName;
+    public void ageUser() {
+        Validation validation = new Validation();
+
+        Scanner ageUserScan = new Scanner(System.in);
+        System.out.print("Wpisz ile masz lat: ");
+        int ageUser = ageUserScan.nextInt();
+
+        age = validation.ageValidation(ageUser);
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+    public void brithDayUser() throws ParseException {
+        Validation validation = new Validation();
 
-    public int getAge() {
-        return age;
-    }
+        Scanner ageDay = new Scanner(System.in);
+        System.out.print("Wpisz date urodzenia [dd.mm.yyyy]: ");
+        String ageDayUser = ageDay.nextLine();
 
-    public void setAge(int age) {
-        this.age = age;
-    }
+        String dateVal = validation.brithDay(ageDayUser);
+        SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+        dateAge = format.parse(dateVal);
 
-    public String getDateAge() {
-        return dateAge;
-    }
-
-    public void setDateAge(String dateAge) {
-        this.dateAge = dateAge;
-    }
-
-    public String geteMail() {
-        return eMail;
-    }
-
-    public void seteMail(String eMail) {
-        this.eMail = eMail;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }
