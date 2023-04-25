@@ -16,6 +16,7 @@ public class MathRandom {
 
     public String Random(int num1, int num2, int options){
         String text = "";
+
         if (options == 0){
             text = "Zadanie: " + num1 + "+" + num2 + ": ";
             correct = num1 + num2;

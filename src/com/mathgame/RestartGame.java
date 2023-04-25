@@ -7,8 +7,6 @@ import java.text.ParseException;
 import java.util.Scanner;
 
 public class RestartGame extends UserName{
-    private String result;
-    private boolean restartGame;
 
     public RestartGame(){
     }
@@ -17,32 +15,16 @@ public class RestartGame extends UserName{
         super(user);
     }
 
-    public boolean start2() throws IOException, ParseException {
-
-        Scanner ask = new Scanner(System.in);
-        System.out.println("Witaj. Zaczynamy? [Y/N]");
-        String res = ask.nextLine();
-
-        if(res.equals("Y")) {
-            restartGame = true;
-        } else{
-            restartGame = false;
-        }
-
-        return restartGame;
-    }
-
     public void restart() throws IOException, ParseException {
         Scanner ask = new Scanner(System.in);
         System.out.print("Chceś sprubować jeszcze raz? Y/N: ");
         String askResult = ask.nextLine();
 
         if (askResult.equals("Y")) {
-            start2();
+            Main.main(new String[]{});
         } else{
             System.out.println("Konieć gry! Twoje danne:");
             setValues();
-            restartGame = false;
         }
     }
 
@@ -61,21 +43,8 @@ public class RestartGame extends UserName{
         Scanner userLoad = new Scanner(load);
 
         while(userLoad.hasNextLine()){
-            String userData = userLoad.nextLine();
-            result = userData;
+            String result = userLoad.nextLine();
             System.out.println(result);
         }
-    }
-
-    public boolean isRestartGame() {
-        return restartGame;
-    }
-
-    public boolean start (){
-        return restartGame;
-    }
-
-    public void stop (){
-        restartGame = false;
     }
 }
