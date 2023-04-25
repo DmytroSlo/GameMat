@@ -119,23 +119,15 @@ public class Main {
     //Create new users
     public static void createUser(String user) throws IOException, ParseException {
         // Ankieta rejestracijna
-        Validation validation = new Validation();
         CreateUser create = new CreateUser();
 
-        create.nameUser();
-        create.lNameUser();
-        create.ageUser();
-        create.brithDayUser();
+//        create.nameUser();
+//        create.lNameUser();
+//        create.ageUser();
+//        create.brithDayUser();
+//        create.eMail();
+//        create.password();
 
-        Scanner eMail = new Scanner(System.in);
-        System.out.print("Wpisz e-mail: ");
-        String eMailUser = eMail.nextLine();
-
-        Scanner password = new Scanner(System.in);
-        System.out.print("Wpisz password: ");
-        String passwordUser = password.nextLine();
-
-        //CreateUser create = new CreateUser(user, , validLName, ageValid, validDate,eMailUser, passwordUser);
         create.createAccount(user);
 
         RestartGame done = new RestartGame();

@@ -27,13 +27,15 @@ public class CreateUser extends UserName{
         this.password = password;
     }
 
-    public void createAccount(String user) throws FileNotFoundException {
+    public void createAccount(String user) throws FileNotFoundException, ParseException {
         PrintWriter save = new PrintWriter("src\\resource\\Users\\" + user + ".txt");
 
         nameUser();
         lNameUser();
         ageUser();
         brithDayUser();
+        eMail();
+        password();
 
         int defoult = 0;
 
@@ -97,6 +99,17 @@ public class CreateUser extends UserName{
         String dateVal = validation.brithDay(ageDayUser);
         SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
         dateAge = format.parse(dateVal);
+    }
 
+    public void eMail(){
+        Scanner eMailUser = new Scanner(System.in);
+        System.out.print("Wpisz e-mail: ");
+        eMail = eMailUser.nextLine();
+    }
+
+    public void password(){
+        Scanner passwordUs = new Scanner(System.in);
+        System.out.print("Wpisz password: ");
+        password = passwordUs.nextLine();
     }
 }
