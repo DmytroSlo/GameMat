@@ -21,7 +21,6 @@ public class Main {
         if (validUser.userValidation()) {
             boolean passResult = validUser.passwordValidation(passwordUser);
             if(passResult) {
-                System.out.println(validUser);
                 //LVL posium
                 Scanner hard = new Scanner(System.in);
                 System.out.print("Jaki chceś poziom [1, 2 ,3]?: ");
@@ -109,28 +108,14 @@ public class Main {
             System.out.print("Nie ma takiego użytkownika. Zarejestruj się\nChcesz zarejestrować się? Y/N: ");
             String accepted = createAccount.nextLine();
             if(Objects.equals(accepted, "Y")) {
-                createUser(user);
+                CreateUser create = new CreateUser();
+                create.createAccount(user);
+
+                RestartGame done = new RestartGame();
+                done.startNewUser();
             } else{
                 System.out.println("Konieć!");
             }
         }
-    }
-
-    //Create new users
-    public static void createUser(String user) throws IOException, ParseException {
-        // Ankieta rejestracijna
-        CreateUser create = new CreateUser();
-
-//        create.nameUser();
-//        create.lNameUser();
-//        create.ageUser();
-//        create.brithDayUser();
-//        create.eMail();
-//        create.password();
-
-        create.createAccount(user);
-
-        RestartGame done = new RestartGame();
-        done.startNewUser();
     }
 }
