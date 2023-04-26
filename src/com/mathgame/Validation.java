@@ -92,17 +92,55 @@ public class Validation {
             try {
                 if(hasError){
                     Scanner ageDay = new Scanner(System.in);
-                    System.out.print("Złe wpisałeś date!\nSprubój ponownie [dd.mm.yyyy]: ");
+                    System.out.print("Coś poszło nie tak!\nSprubój ponownie [dd.mm.yyyy]: ");
                     newDate = ageDay.nextLine();
                 }
                 Date brithDay = dateFormat.parse(newDate);
+                newDate = dateFormat.format(brithDay);
                 break;
             } catch (ParseException e) {
                 hasError = true;
             }
         }
 
+        System.out.println(newDate);
+
         return newDate;
+    }
+
+    public String eMailValidation(String eMail) {
+
+        while(true){
+            String emailRefex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
+                    "[a-zA-Z0-9_+&*-]+)*@" +
+                    "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                    "A-Z]{2,7}$";
+
+            Pattern pattern = Pattern.compile(emailRefex);
+
+            if(pattern.matcher(eMail).matches()) {
+                break;
+            } else{
+                Scanner newEmail = new Scanner(System.in);
+                System.out.print("Złe wpisałeś,\nSpróbuj ponownie: ");
+                eMail = newEmail.nextLine();
+            }
+        }
+
+        return eMail;
+    }
+
+    public String passwordValidation(String password){
+
+        if(password.length() > 5){
+            return password;
+        } else{
+            Scanner newPass = new Scanner(System.in);
+            System.out.print("Hasło powinno być dłurzsze, a niż 5 symwolu!\nSpróbuj ponownie: ");
+            password = newPass.nextLine();
+        }
+
+        return password;
     }
 
 }

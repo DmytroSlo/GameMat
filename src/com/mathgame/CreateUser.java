@@ -11,13 +11,13 @@ public class CreateUser extends UserName{
     private String firstName;
     private String lastName;
     private int age;
-    private Date dateAge;
+    private String dateAge;
     private String eMail;
     private String password;
 
     public CreateUser() {}
 
-    public CreateUser(String user, String firstName, String lastName, int age, Date dateAge, String eMail, String password) {
+    public CreateUser(String user, String firstName, String lastName, int age, String dateAge, String eMail, String password) {
         super(user);
         this.firstName = firstName;
         this.lastName = lastName;
@@ -96,20 +96,26 @@ public class CreateUser extends UserName{
         System.out.print("Wpisz date urodzenia [dd.mm.yyyy]: ");
         String ageDayUser = ageDay.nextLine();
 
-        String dateVal = validation.brithDay(ageDayUser);
-        SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
-        dateAge = format.parse(dateVal);
+        dateAge = validation.brithDay(ageDayUser);
     }
 
     public void eMail(){
+        Validation validation = new Validation();
+
         Scanner eMailUser = new Scanner(System.in);
         System.out.print("Wpisz e-mail: ");
-        eMail = eMailUser.nextLine();
+        String eMailuser = eMailUser.nextLine();
+
+        eMail = validation.eMailValidation(eMailuser);
     }
 
     public void password(){
+        Validation validation = new Validation();
+
         Scanner passwordUs = new Scanner(System.in);
         System.out.print("Wpisz password: ");
-        password = passwordUs.nextLine();
+        String passwordUser = passwordUs.nextLine();
+
+        password = validation.passwordValidation(passwordUser);
     }
 }

@@ -8,6 +8,8 @@ import java.util.Scanner;
 
 public class RestartGame extends UserName{
 
+    private String msg;
+
     public RestartGame(){
     }
 
@@ -15,7 +17,7 @@ public class RestartGame extends UserName{
         super(user);
     }
 
-    public void restart() throws IOException, ParseException {
+    public String restart() throws IOException, ParseException {
         Scanner ask = new Scanner(System.in);
         System.out.print("Chceś sprubować jeszcze raz? Y/N: ");
         String askResult = ask.nextLine();
@@ -26,6 +28,8 @@ public class RestartGame extends UserName{
             System.out.println("Konieć gry! Twoje danne:");
             setValues();
         }
+
+        return msg;
     }
 
     public void startNewUser() throws IOException, ParseException {
@@ -46,5 +50,9 @@ public class RestartGame extends UserName{
             String result = userLoad.nextLine();
             System.out.println(result);
         }
+    }
+
+    public String getMsg() {
+        return msg;
     }
 }
