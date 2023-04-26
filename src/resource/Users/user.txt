@@ -5,7 +5,7 @@ Data urodzenia: 31/04/2000
 E-mail: user@userowi.com
 Login: user
 Password: 123
-Point: 60
+Point: 57
 Lvl: 5
 BestTime: 1
 Money: 0

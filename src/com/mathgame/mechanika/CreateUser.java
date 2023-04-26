@@ -1,10 +1,8 @@
-package com.mathgame;
+package com.mathgame.mechanika;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Scanner;
 
 public class CreateUser extends UserName{

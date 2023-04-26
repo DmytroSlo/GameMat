@@ -1,4 +1,4 @@
-package com.mathgame;
+package com.mathgame.mechanika;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

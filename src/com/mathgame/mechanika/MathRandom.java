@@ -1,4 +1,4 @@
-package com.mathgame;
+package com.mathgame.mechanika;
 
 public class MathRandom {
     private int num1;

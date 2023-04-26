@@ -1,5 +1,7 @@
 package com.mathgame;
 
+import com.mathgame.mechanika.*;
+
 import java.io.*;
 import java.text.ParseException;
 import java.util.*;
@@ -92,6 +94,8 @@ public class Main {
                         newLvl.lvlUp();
 
                         time.Cancel();
+                        System.out.println("Prawidłowa odpowiedz: " + correct);
+
                         reset.restart();
                     }
                 } else {

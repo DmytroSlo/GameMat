@@ -1,4 +1,6 @@
-package com.mathgame;
+package com.mathgame.mechanika;
+
+import com.mathgame.Main;
 
 import java.io.File;
 import java.io.FileNotFoundException;
