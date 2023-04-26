@@ -1,6 +1,7 @@
 package com.mathgame;
 
 import com.mathgame.mechanika.*;
+import com.mathgame.top.TopUsers;
 
 import java.io.*;
 import java.text.ParseException;
@@ -16,6 +17,9 @@ public class Main {
         Scanner userPassword = new Scanner(System.in);
         System.out.print("Wpisz hasło: ");
         String passwordUser = userPassword.nextLine();
+
+        TopUsers top = new TopUsers();
+        top.userTopLvl();
 
         UserName validUser = new UserName(user);
         //Shearch users
