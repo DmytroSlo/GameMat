@@ -1,5 +1,6 @@
 package com.mathgame.mechanika;
 
+import com.mathgame.Game;
 import com.mathgame.Main;
 
 import java.io.File;
@@ -19,13 +20,14 @@ public class RestartGame extends UserName{
         super(user);
     }
 
-    public String restart() throws IOException, ParseException {
+    public String restart(String password) throws IOException, ParseException {
         Scanner ask = new Scanner(System.in);
         System.out.print("Chceś sprubować jeszcze raz? Y/N: ");
         String askResult = ask.nextLine();
 
         if (askResult.equals("Y")) {
-            Main.main(new String[]{});
+            Game game = new Game(user, password);
+            game.gameStart();
         } else{
             System.out.println("Konieć gry! Twoje danne:");
             setValues();

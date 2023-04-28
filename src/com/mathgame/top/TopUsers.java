@@ -3,6 +3,9 @@ package com.mathgame.top;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
+import java.util.stream.Collectors;
+
+import static java.util.Arrays.stream;
 
 public class TopUsers implements ITopUser{
 
@@ -48,12 +51,17 @@ public class TopUsers implements ITopUser{
             map.put(keyName, valueLvl);
         }
 
+        Map<String, Integer> posortowanaMapa = map.entrySet()
+            .stream()
+            .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+                    (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+
         System.out.println("Top users:");
-        for(Map.Entry<String, Integer> el : map.entrySet()){
+        for(Map.Entry<String, Integer> el : posortowanaMapa.entrySet()){
             System.out.println("User: " + el.getKey() + ". Lvl: " + el.getValue());
         }
     }
-
 
     @Override
     public String userTopPoint() {
