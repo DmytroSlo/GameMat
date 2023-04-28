@@ -19,14 +19,23 @@ public class Main {
         String passwordUser = userPassword.nextLine();
 
         Scanner ask = new Scanner(System.in);
-        System.out.print("Chcesz sprawdzić kto ma największy LVL?: [Y/N]");
+        System.out.println("Menu:" + "\n1: Top LVL" +
+                "\n2: Top Point" + "\n3: Top Time" + "\n4: Start Game");
         String resAsk = ask.nextLine();
-        if(resAsk.equals("Y")) {
-            TopUsers top = new TopUsers();
-            top.userTopLvl();
-        }
-
+        TopUsers top = new TopUsers();
         Game game = new Game(user, passwordUser);
-        game.gameStart();
+
+        if (resAsk.equals("1")) {
+            top.userTopLvl();
+            game.gameStart();
+        } else if (resAsk.equals("2")) {
+            top.userTopPoint();
+            game.gameStart();
+        } else if (resAsk.equals("3")) {
+            top.userTopTime();
+            game.gameStart();
+        } else if(resAsk.equals("4")) {
+            game.gameStart();
+        }
     }
 }

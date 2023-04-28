@@ -6,9 +6,9 @@ public interface ITopUser {
 
     public void userTopLvl() throws FileNotFoundException;
 
-    public String userTopPoint();
+    public void userTopPoint() throws FileNotFoundException;
 
-    public String userTopTime();
+    public void userTopTime() throws FileNotFoundException;
 
 
 }
