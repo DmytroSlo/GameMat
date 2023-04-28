@@ -2,9 +2,7 @@ package com.mathgame.top;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.util.*;
 
 public class TopUsers implements ITopUser{
 
@@ -31,32 +29,28 @@ public class TopUsers implements ITopUser{
             }
         }
 
-        ArrayList<Integer> lvl = new ArrayList<>();
-
+        Map<String, Integer > map = new HashMap<>();
         for(String fileName : usersName) {
             File lvlcheck = new File("src\\resource\\Users\\" + fileName);
             Scanner lvlScan = new Scanner(lvlcheck);
 
+            String[] split = fileName.split(".txt");
+            String keyName = split[0];
+            int valueLvl = 0;
+
             while(lvlScan.hasNextLine()){
                 String lvlChek = lvlScan.nextLine();
                 if(lvlChek.startsWith("Lvl: ")){
-                    int lvlposition = Integer.parseInt(lvlChek.split(":")[1].trim());
-                    lvl.add(lvlposition);
+                    valueLvl = Integer.parseInt(lvlChek.split(":")[1].trim());
                 }
             }
+
+            map.put(keyName, valueLvl);
         }
 
-        Comparator<Integer> topDoun = new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return o2.compareTo(o1);
-            }
-        };
-
-        lvl.sort(topDoun);
-
-        for(int lvlShurch : lvl){
-            System.out.println(lvlShurch);
+        System.out.println("Top users:");
+        for(Map.Entry<String, Integer> el : map.entrySet()){
+            System.out.println("User: " + el.getKey() + ". Lvl: " + el.getValue());
         }
     }
 
