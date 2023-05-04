@@ -37,11 +37,14 @@ public class UserName {
                 if(passUserValue.equals(passwordUser)){
                     passwordResult = true;
                 } else{
-                    System.out.println("Złe wpisałeś hasło!");
                     passwordResult = false;
                 }
             }
         }
+        return passwordResult;
+    }
+
+    public boolean isPasswordResult() {
         return passwordResult;
     }
 
