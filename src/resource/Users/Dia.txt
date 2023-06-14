@@ -1,0 +1,11 @@
+Imię: Dia
+Nazwisko: SA
+Wiek: 23
+Data urodzenia: 12.33.2111
+E-mail: aw@ae
+Login: Dia
+Password: 22
+Point: 0
+Lvl: 1
+AllGameTime: 0.0
+Money: 0

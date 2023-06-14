@@ -1,0 +1,11 @@
+Imię: Admin
+Nazwisko: Admin
+Wiek: 23
+Data urodzenia: 03.08.2000
+E-mail: admin@admin.com
+Login: admin
+Password: admin123
+Point: 13
+Lvl: 2
+BestTime: 1
+Money: 0

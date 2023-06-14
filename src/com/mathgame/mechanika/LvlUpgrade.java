@@ -1,6 +1,7 @@
 package com.mathgame.mechanika;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -13,9 +14,14 @@ public class LvlUpgrade extends UserName {
         super.user = user;
     }
 
-    public void lvlUp() throws IOException {
+    public void lvlUp() {
         File lvlcheck = new File("src\\resource\\Users\\" + user + ".txt");
-        Scanner lvl = new Scanner(lvlcheck);
+        Scanner lvl = null;
+        try {
+            lvl = new Scanner(lvlcheck);
+        } catch (FileNotFoundException e){
+            System.out.println("Error LvlUpgrade lvlUp: " + e);
+        }
 
         StringBuilder lvlcontent = new StringBuilder();
         int lvlposition = 0;
@@ -62,9 +68,13 @@ public class LvlUpgrade extends UserName {
         }
         lvl.close();
 
-        FileWriter save = new FileWriter(lvlcheck);
-        save.write(lvlcontent.toString());
-        save.close();
+        try {
+            FileWriter save = new FileWriter(lvlcheck);
+            save.write(lvlcontent.toString());
+            save.close();
+        }catch (IOException e){
+            System.out.println("Error LvlUpgrade lvlUp save: " + e);
+        }
     }
 }
 

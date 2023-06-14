@@ -1,0 +1,11 @@
+Imię: Dmytro
+Nazwisko: Slobodia
+Wiek: 21
+Data urodzenia: 05.05.2001
+E-mail: timraiders17@gmail.com
+Login: TimDemonov
+Password: 12100112422255
+Point: 20
+Lvl: 3
+AllGameTime: 0.0
+Money: 0

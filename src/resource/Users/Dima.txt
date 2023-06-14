@@ -1,0 +1,11 @@
+Imię: Dima
+Nazwisko: Slo
+Wiek: 21
+Data urodzenia: 05.05.0201
+E-mail: timraiders17@gmail.com
+Login: Dima
+Password: 05.05.05
+Point: 0
+Lvl: 1
+AllGameTime: 0.0
+Money: 0

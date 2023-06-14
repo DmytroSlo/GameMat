@@ -1,6 +1,7 @@
 package com.mathgame.mechanika;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -49,10 +50,14 @@ public class Time extends UserName{
         return result;
     }
 
-    public void addTime(String user) throws IOException {
+    public void addTime(String user) {
         File timeCheck = new File("src\\resource\\Users\\" + user + ".txt");
-        Scanner timer = new Scanner(timeCheck);
-
+        Scanner timer = null;
+        try {
+            timer = new Scanner(timeCheck);
+        } catch (FileNotFoundException e){
+            System.out.println("Error Time addTime: " + e);
+        }
         long timePosition = 0;
         long timePositionEdit = getResult();
         StringBuilder timerConnect = new StringBuilder();
@@ -82,8 +87,12 @@ public class Time extends UserName{
         }
         timer.close();
 
-        FileWriter save = new FileWriter(timeCheck);
-        save.write(timerConnect.toString());
-        save.close();
+        try {
+            FileWriter save = new FileWriter(timeCheck);
+            save.write(timerConnect.toString());
+            save.close();
+        } catch(IOException e){
+            System.out.println("Error Time Save: " + e);
+        }
     }
 }

@@ -17,7 +17,7 @@ public class UserName {
         this.user = user;
     }
 
-    public boolean userValidation() throws FileNotFoundException {
+    public boolean userValidation() {
         File usersData = new File("src\\resource\\Users\\" + user + ".txt");
         if(usersData.exists()){
                 result = true;
@@ -27,9 +27,14 @@ public class UserName {
         return result;
     }
 
-    public boolean passwordValidation(String passwordUser) throws FileNotFoundException {
+    public boolean passwordValidation(String passwordUser) {
         File usersData = new File("src\\resource\\Users\\" + user + ".txt");
-        Scanner loadPassworld = new Scanner(usersData);
+        Scanner loadPassworld = null;
+        try {
+            loadPassworld = new Scanner(usersData);
+        } catch (FileNotFoundException e){
+            System.out.println("Error UserName Password Validation: " + e);
+        }
         while (loadPassworld.hasNextLine()){
             String passwordUserLoad = loadPassworld.nextLine();
             if(passwordUserLoad.startsWith("Password: ")){

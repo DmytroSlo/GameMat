@@ -2,10 +2,6 @@ package com.mathgame;
 
 import com.mathgame.mechanika.*;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.text.ParseException;
-import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -15,15 +11,15 @@ public class Game {
 
     private String password;
 
-    public Game() throws FileNotFoundException, IOException, ParseException {
+    public Game() {
     }
 
-    public Game(String user, String password) throws FileNotFoundException, IOException, ParseException{
+    public Game(String user, String password){
         this.user = user;
         this.password = password;
     }
 
-    public void gameStart() throws FileNotFoundException, IOException, ParseException {
+    public void gameStart() {
         //LVL posium
         Scanner hard = new Scanner(System.in);
         System.out.print("Jaki chceś poziom [1, 2 ,3]?: ");

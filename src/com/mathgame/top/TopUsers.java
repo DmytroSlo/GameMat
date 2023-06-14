@@ -5,8 +5,6 @@ import java.io.FileNotFoundException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static java.util.Arrays.stream;
-
 public class TopUsers implements ITopUser{
 
     private String user;
@@ -19,7 +17,7 @@ public class TopUsers implements ITopUser{
     }
 
     @Override
-    public void userTopLvl() throws FileNotFoundException {
+    public void userTopLvl() {
         File folder = new File("src\\resource\\Users\\");
 
         ArrayList<String> usersName = new ArrayList<>();
@@ -35,7 +33,12 @@ public class TopUsers implements ITopUser{
         Map<String, Integer > map = new HashMap<>();
         for(String fileName : usersName) {
             File lvlcheck = new File("src\\resource\\Users\\" + fileName);
-            Scanner lvlScan = new Scanner(lvlcheck);
+            Scanner lvlScan = null;
+            try {
+                lvlScan = new Scanner(lvlcheck);
+            }catch (FileNotFoundException e){
+                System.out.println("Error Top LVL: " + e);
+            }
 
             String[] split = fileName.split(".txt");
             String keyName = split[0];
@@ -64,7 +67,7 @@ public class TopUsers implements ITopUser{
     }
 
     @Override
-    public void userTopPoint() throws FileNotFoundException {
+    public void userTopPoint() {
         File folder = new File("src\\resource\\Users\\");
 
         ArrayList<String> usersName = new ArrayList<>();
@@ -80,8 +83,12 @@ public class TopUsers implements ITopUser{
         Map<String, Integer> map = new HashMap<>();
         for (String fileName : usersName) {
             File lvlcheck = new File("src\\resource\\Users\\" + fileName);
-            Scanner lvlScan = new Scanner(lvlcheck);
-
+            Scanner lvlScan = null;
+            try {
+                lvlScan = new Scanner(lvlcheck);
+            } catch (FileNotFoundException e){
+                System.out.println("Error Top point: " + e);
+            }
             String[] split = fileName.split(".txt");
             String keyName = split[0];
             int valueLvl = 0;
@@ -109,7 +116,7 @@ public class TopUsers implements ITopUser{
     }
 
     @Override
-    public void userTopTime() throws FileNotFoundException {
+    public void userTopTime() {
         File folder = new File("src\\resource\\Users\\");
 
         ArrayList<String> usersName = new ArrayList<>();
@@ -125,8 +132,12 @@ public class TopUsers implements ITopUser{
         Map<String, Integer> map = new HashMap<>();
         for (String fileName : usersName) {
             File lvlcheck = new File("src\\resource\\Users\\" + fileName);
-            Scanner lvlScan = new Scanner(lvlcheck);
-
+            Scanner lvlScan = null;
+            try {
+                lvlScan = new Scanner(lvlcheck);
+            } catch (FileNotFoundException e){
+                System.out.println("Error Top time: " + e);
+            }
             String[] split = fileName.split(".txt");
             String keyName = split[0];
             int valueLvl = 0;

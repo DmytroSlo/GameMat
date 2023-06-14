@@ -25,13 +25,22 @@ public class CreateUser extends UserName{
         this.password = password;
     }
 
-    public void createAccount(String user) throws FileNotFoundException, ParseException {
-        PrintWriter save = new PrintWriter("src\\resource\\Users\\" + user + ".txt");
+    public void createAccount(String user) {
+        PrintWriter save = null;
+        try {
+            save = new PrintWriter("src\\resource\\Users\\" + user + ".txt");
+        } catch (FileNotFoundException e) {
+            System.out.println("Error CreateUser createAccount: " + e);
+        }
 
         nameUser();
         lNameUser();
         ageUser();
-        brithDayUser();
+        try {
+            brithDayUser();
+        } catch (ParseException e) {
+            System.out.println("Error CreateUser -> createAccount -> brithDayUser: " + e);
+        }
         eMail();
         password();
 

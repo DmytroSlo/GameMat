@@ -3,12 +3,10 @@ package com.mathgame;
 import com.mathgame.mechanika.*;
 import com.mathgame.top.TopUsers;
 
-import java.io.*;
-import java.text.ParseException;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws IOException, ParseException {
+    public static void main(String[] args) {
         //Login
         Scanner userLogin = new Scanner(System.in);
         System.out.print("Wpisz swój login: ");

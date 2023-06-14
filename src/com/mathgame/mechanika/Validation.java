@@ -4,7 +4,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Validation {
@@ -80,7 +79,7 @@ public class Validation {
         }
     }
 
-    public String brithDay(String age) throws ParseException {
+    public String brithDay(String age) {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
         dateFormat.setLenient(false);

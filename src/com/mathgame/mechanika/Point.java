@@ -1,6 +1,7 @@
 package com.mathgame.mechanika;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -20,7 +21,7 @@ public class Point extends UserName{
         this.hardlvl = hardlvl;
     }
 
-    public void PointUp(String user, int answer, int correct, int hardlvl) throws IOException {
+    public void PointUp(String user, int answer, int correct, int hardlvl) {
         File usersData = new File("src\\resource\\Users\\" + user + ".txt");
         if (usersData.exists()) {
             int currentPoints = 0;
@@ -31,7 +32,12 @@ public class Point extends UserName{
                     case 3 -> 3;
                     default -> 0;
                 };
-                Scanner loadFile = new Scanner(usersData);
+                Scanner loadFile = null;
+                try {
+                    loadFile = new Scanner(usersData);
+                } catch (FileNotFoundException e){
+                    System.out.println("Error Point pointUp: " + e);
+                }
 
                 StringBuilder fileContents = new StringBuilder();
                 while (loadFile.hasNextLine()) {
@@ -45,19 +51,28 @@ public class Point extends UserName{
                 }
                 loadFile.close();
                 //Save to file User
-                FileWriter save = new FileWriter(usersData);
-                save.write((fileContents.toString()));
-                save.close();
+                try {
+                    FileWriter save = new FileWriter(usersData);
+                    save.write((fileContents.toString()));
+                    save.close();
+                }catch (IOException e){
+                    System.out.println("Error Point save PointUp: " + e);
+                }
 
                 System.out.println("Dostałeś " + newPointValue + " punkty. \nMaś: " + currentPoints);
         }
     }
 
-    public void PointDown(String user, int hardlvl) throws IOException {
+    public void PointDown(String user, int hardlvl) {
         int currentPoints = 0;
 
         File usersData = new File("src\\resource\\Users\\" + user + ".txt");
-        Scanner loadFile = new Scanner(usersData);
+        Scanner loadFile = null;
+        try {
+            loadFile = new Scanner(usersData);
+        } catch (FileNotFoundException e){
+            System.out.println("Error Point pointDown: " + e);
+        }
 
         int newPointValue = switch (hardlvl) {
             case 1 -> 1;
@@ -78,10 +93,13 @@ public class Point extends UserName{
         }
         loadFile.close();
         //Save to file User
-        FileWriter save = new FileWriter(usersData);
-        save.write((fileContents.toString()));
-        save.close();
-
+        try {
+            FileWriter save = new FileWriter(usersData);
+            save.write((fileContents.toString()));
+            save.close();
+        } catch (IOException e){
+            System.out.println("Error Point pointDown save: " + e);
+        }
         System.out.println("Straciłeś " + newPointValue + " punkty. Maś: " + currentPoints);
     }
 }
